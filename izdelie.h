@@ -1,29 +1,20 @@
-#ifndef IZDELIE_H_INCLUDED
-#define IZDELIE_H_INCLUDED
+#ifndef DIVAN_H_INCLUDED
+#define DIVAN_H_INCLUDED
 
-#include <iostream>
-#include <string>
+#include "mebel.h"
 
-using namespace std;
-
-class izdelie{
-protected:
-    string name;
-    string color;
-    int size;
+class divan: public mebel{
+    string pokritie;
 public:
-    izdelie();
-    izdelie(string name_,int size_,string color_);
-    izdelie(const izdelie &p);
+    divan();
+    divan(string const &name_, int const size_, string const &color_, string const &material_, string const &pokritie_);
+    divan(const divan &p);
 
-    void SetName(string name_);
-    string GetName() const;
-    bool SetSize(int size_);
-    int GetSize() const;
-    void SetColor(string color_);
-    string GetColor() const;
+    bool SetPokritie(int pokritie_);
+    const string& GetPokritie() const;
 
-    virtual void print()const = 0;
+    void print() const;
+    divan& operator = (divan const &p);
 };
 
-#endif // IZDELIE_H_INCLUDED
+#endif
