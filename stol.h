@@ -3,14 +3,15 @@
 
 #include "mebel.h"
 
-class stol: public mebel{
+class Table: public mebel{
     int kolsec;
 public:
-    stol();
-    stol(string name_, int size_, string color_, string material_);
-    stol(const stol &p);
+    Table();
+    Table(string const &name_, int const size_, string const &color_, string const &material_);
+    Table(const Table &p);
 
     void print() const;
+    Table& operator = (Table const &p);
 };
 
-#endif // SHKAF_H_INCLUDED
+#endif
