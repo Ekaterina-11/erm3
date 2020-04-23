@@ -1,6 +1,6 @@
 #include "izdelie.h"
 
-izdelie::izdelie(string name_, int size_, string color_){
+izdelie::izdelie(string const &name_, int const size_, string const &color_){
     if (!SetSize(size_))
         size = 0;
         name = name_;
@@ -13,7 +13,7 @@ izdelie::izdelie(){
     color = "";
 }
 
-bool izdelie::SetSize(int size_){
+bool izdelie::SetSize(const int size_){
     if (size_ < 0)
     return false;
     else
@@ -21,7 +21,7 @@ bool izdelie::SetSize(int size_){
     return true;
 }
 
-string izdelie::GetName() const{
+const string& izdelie::GetName() const{
     return name;
 }
 
@@ -29,6 +29,14 @@ int izdelie::GetSize() const{
     return size;
 }
 
-string izdelie::GetColor() const{
+const string& izdelie::GetColor() const{
     return color;
+}
+
+izdelie& izdelie::operator = (izdelie const &p)
+{
+    this->name = p.name;
+    this->color = p.color;
+    this->size = p.size;
+    return *this;
 }
