@@ -8,12 +8,13 @@ protected:
     string material;
 public:
     mebel();
-    mebel(string name_, int size_, string color_, string material_);
+    mebel(string const &name_, int const size_, string const &color_, string const &material_);
 
-    void SetMaterial(string material_);
-    string GetMaterial() const;
+    void SetMaterial(string const &material_);
+    const string& GetMaterial() const;
 
     virtual void print()const = 0;
+    mebel& operator = (mebel const &p);
 };
 
-#endif // MEBEL_H_INCLUDED
+#endif
