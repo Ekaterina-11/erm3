@@ -4,16 +4,17 @@
 #include "mebel.h"
 
 class shkaf: public mebel{
-    int polki;
+    int shelf;
 public:
     shkaf();
-    shkaf(string name_, int size_, string color_, string material_, int polki_);
+    shkaf(string const &name_, int const size_, string const &color_, string const &material_, int const shelf_);
     shkaf(const shkaf &p);
 
-    bool SetPolki(int polki_);
-    int GetPolki() const;
+    bool SetShelf(int const shelf_);
+    int GetShelf() const;
 
     void print() const;
+    shkaf& operator = (shkaf const &p);
 };
 
-#endif // SHKAF_H_INCLUDED
+#endif
