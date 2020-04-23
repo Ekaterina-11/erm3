@@ -4,16 +4,17 @@
 #include "mebel.h"
 
 class stellage: public mebel{
-    int kolsec;
+    int sections;
 public:
     stellage();
-    stellage(string name_, int size_, string color_, string material_, int kolsec_);
+    stellage(string const &name_, int const size_, string const &color_, string const &material_, int const sections_);
     stellage(const stellage &p);
 
-    bool SetKolsec(int kolsec_);
-    int GetKolsec() const;
+    bool SetSections(int sections_);
+    int GetSections() const;
 
     void print() const;
+    stellage& operator = (stellage const &p);
 };
 
-#endif // SHKAF_H_INCLUDED
+#endif
