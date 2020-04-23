@@ -1,6 +1,6 @@
 #include "divan.h"
 
-divan::divan(string name_, int size_, string color_, string material_, string pokritie_):mebel(name_, size_, color_, material_){
+divan::divan(string const &name_, int const size_, string const &color_, string const &material_, string const &pokritie_):mebel(name_, size_, color_, material_){
     pokritie = pokritie_;
 }
 
@@ -12,14 +12,21 @@ divan::divan(const divan &p){
     pokritie = p.pokritie;
 }
 
-string divan::GetPokritie() const{
+const string& divan::GetPokritie() const{
     return pokritie;
 }
 
 void divan::print() const{
-cout << "Nazvanie: " << name << endl;
-cout << "Razmer: " << size << endl;
-cout << "Cvet: " << color << endl;
+cout << "Name: " << name << endl;
+cout << "Size: " << size << endl;
+cout << "Color: " << color << endl;
 cout << "Material: " << material << endl;
 cout << "Pokritie: " << pokritie << endl;
+}
+
+divan& divan::operator = (divan const &p)
+{
+    mebel::operator=(p);
+    this->pokritie = p.pokritie;
+    return *this;
 }
